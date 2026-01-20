@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="h-full">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,10 +13,35 @@
 		<!-- Tailwind CDN -->
 		<script src="https://cdn.tailwindcss.com"></script>
 
+		<!-- Enable class-based dark mode -->
+		<script>
+			tailwind.config = {
+				darkMode: "class",
+				theme: { extend: {} },
+			}
+		</script>
+
+		<!-- Set theme ASAP to avoid flash -->
+		<script>
+			;(function () {
+				const stored = localStorage.getItem("theme") // "light" | "dark" | null
+				const prefersDark =
+					window.matchMedia &&
+					window.matchMedia("(prefers-color-scheme: dark)").matches
+
+				const theme = stored ?? (prefersDark ? "dark" : "light")
+				document.documentElement.classList.toggle("dark", theme === "dark")
+			})()
+		</script>
+
 		<style>
 			@media print {
+				/* Force print to light and hide the toggle */
+				#theme-toggle {
+					display: none !important;
+				}
 				body {
-					background: white;
+					background: white !important;
 				}
 				a {
 					text-decoration: none !important;
@@ -26,33 +51,50 @@
 		</style>
 	</head>
 
-	<body class="bg-white text-slate-900 antialiased">
+	<body
+		class="h-full bg-white text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100"
+	>
 		<main class="mx-auto max-w-3xl px-6 py-10">
+			<!-- Top bar -->
+			<div class="mb-6 flex items-center justify-end">
+				<button
+					id="theme-toggle"
+					type="button"
+					class="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-800 shadow-sm hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-300 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800 dark:focus:ring-slate-700"
+					aria-label="Toggle dark mode"
+				>
+					<span id="theme-icon" aria-hidden="true">🌙</span>
+					<span id="theme-label">Dark</span>
+				</button>
+			</div>
+
 			<!-- Header -->
-			<header class="border-b border-slate-200 pb-6">
+			<header class="border-b border-slate-200 pb-6 dark:border-slate-800">
 				<h1 class="text-3xl font-bold tracking-tight">Oisin Bourke</h1>
-				<p class="mt-1 text-lg text-slate-700">Software Engineer</p>
+				<p class="mt-1 text-lg text-slate-700 dark:text-slate-300">
+					Software Engineer
+				</p>
 
 				<div
-					class="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm text-slate-700"
+					class="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm text-slate-700 dark:text-slate-300"
 				>
 					<span>Belfast, Northern Ireland</span>
 					<span>📞 07925 022239</span>
 					<a
 						href="mailto:obourke@gmail.com"
-						class="underline hover:text-slate-900"
+						class="underline decoration-slate-300 underline-offset-4 hover:text-slate-900 dark:decoration-slate-700 dark:hover:text-white"
 					>
 						obourke@gmail.com
 					</a>
 					<a
 						href="https://www.linkedin.com/in/oisin-bourke/"
-						class="underline hover:text-slate-900"
+						class="underline decoration-slate-300 underline-offset-4 hover:text-slate-900 dark:decoration-slate-700 dark:hover:text-white"
 					>
 						LinkedIn
 					</a>
 					<a
 						href="https://github.com/oisin-bourke"
-						class="underline hover:text-slate-900"
+						class="underline decoration-slate-300 underline-offset-4 hover:text-slate-900 dark:decoration-slate-700 dark:hover:text-white"
 					>
 						GitHub
 					</a>
@@ -62,11 +104,11 @@
 			<!-- Profile -->
 			<section class="mt-8">
 				<h2
-					class="text-sm font-semibold uppercase tracking-wider text-slate-500"
+					class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400"
 				>
 					Profile
 				</h2>
-				<p class="mt-3 leading-relaxed text-slate-800">
+				<p class="mt-3 leading-relaxed text-slate-800 dark:text-slate-200">
 					Software engineer with 6 years’ experience building
 					scalable, high-performing web applications using React,
 					TypeScript, and modern JavaScript. Proven ability to deliver
@@ -79,7 +121,7 @@
 			<!-- Experience -->
 			<section class="mt-8">
 				<h2
-					class="text-sm font-semibold uppercase tracking-wider text-slate-500"
+					class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400"
 				>
 					Employment History
 				</h2>
@@ -92,12 +134,12 @@
 						<h3 class="text-base font-semibold">
 							Frontend Engineer — Rapid7
 						</h3>
-						<span class="text-sm text-slate-600">
+						<span class="text-sm text-slate-600 dark:text-slate-400">
 							Nov 2023 — Present · Belfast
 						</span>
 					</div>
 					<ul
-						class="mt-2 list-disc pl-5 leading-relaxed text-slate-800"
+						class="mt-2 list-disc pl-5 leading-relaxed text-slate-800 dark:text-slate-200"
 					>
 						<li>
 							Developing complex user interfaces using React with
@@ -130,12 +172,12 @@
 						<h3 class="text-base font-semibold">
 							Frontend Engineer — Foods Connected
 						</h3>
-						<span class="text-sm text-slate-600">
+						<span class="text-sm text-slate-600 dark:text-slate-400">
 							Jun 2023 — Oct 2023 · Belfast
 						</span>
 					</div>
 					<ul
-						class="mt-2 list-disc pl-5 leading-relaxed text-slate-800"
+						class="mt-2 list-disc pl-5 leading-relaxed text-slate-800 dark:text-slate-200"
 					>
 						<li>Developed user interfaces using React</li>
 					</ul>
@@ -149,12 +191,12 @@
 						<h3 class="text-base font-semibold">
 							Software Engineer — Pitchbooking
 						</h3>
-						<span class="text-sm text-slate-600">
+						<span class="text-sm text-slate-600 dark:text-slate-400">
 							Jan 2023 — May 2023 · Belfast
 						</span>
 					</div>
 					<ul
-						class="mt-2 list-disc pl-5 leading-relaxed text-slate-800"
+						class="mt-2 list-disc pl-5 leading-relaxed text-slate-800 dark:text-slate-200"
 					>
 						<li>Built front-end features with React</li>
 						<li>Contributed to backend services using Node.js</li>
@@ -169,12 +211,12 @@
 						<h3 class="text-base font-semibold">
 							Software Engineer — Firstup
 						</h3>
-						<span class="text-sm text-slate-600">
+						<span class="text-sm text-slate-600 dark:text-slate-400">
 							Jan 2020 — Dec 2022 · Belfast
 						</span>
 					</div>
 					<ul
-						class="mt-2 list-disc pl-5 leading-relaxed text-slate-800"
+						class="mt-2 list-disc pl-5 leading-relaxed text-slate-800 dark:text-slate-200"
 					>
 						<li>Developed user interfaces using React</li>
 						<li>
@@ -192,33 +234,41 @@
 			<!-- Skills -->
 			<section class="mt-8">
 				<h2
-					class="text-sm font-semibold uppercase tracking-wider text-slate-500"
+					class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400"
 				>
 					Skills
 				</h2>
 				<div class="mt-3 flex flex-wrap gap-2">
-					<span class="rounded-full bg-slate-100 px-3 py-1 text-sm"
+					<span
+						class="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-800 dark:bg-slate-900 dark:text-slate-100"
 						>React</span
 					>
-					<span class="rounded-full bg-slate-100 px-3 py-1 text-sm"
+					<span
+						class="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-800 dark:bg-slate-900 dark:text-slate-100"
 						>JavaScript</span
 					>
-					<span class="rounded-full bg-slate-100 px-3 py-1 text-sm"
+					<span
+						class="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-800 dark:bg-slate-900 dark:text-slate-100"
 						>TypeScript</span
 					>
-					<span class="rounded-full bg-slate-100 px-3 py-1 text-sm"
-						>HTML & CSS</span
+					<span
+						class="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-800 dark:bg-slate-900 dark:text-slate-100"
+						>HTML &amp; CSS</span
 					>
-					<span class="rounded-full bg-slate-100 px-3 py-1 text-sm"
-						>Node & NPM</span
+					<span
+						class="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-800 dark:bg-slate-900 dark:text-slate-100"
+						>Node &amp; NPM</span
 					>
-					<span class="rounded-full bg-slate-100 px-3 py-1 text-sm"
+					<span
+						class="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-800 dark:bg-slate-900 dark:text-slate-100"
 						>Git</span
 					>
-					<span class="rounded-full bg-slate-100 px-3 py-1 text-sm"
+					<span
+						class="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-800 dark:bg-slate-900 dark:text-slate-100"
 						>Teamwork</span
 					>
-					<span class="rounded-full bg-slate-100 px-3 py-1 text-sm"
+					<span
+						class="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-800 dark:bg-slate-900 dark:text-slate-100"
 						>Communication</span
 					>
 				</div>
@@ -227,7 +277,7 @@
 			<!-- Education -->
 			<section class="mt-8">
 				<h2
-					class="text-sm font-semibold uppercase tracking-wider text-slate-500"
+					class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400"
 				>
 					Education
 				</h2>
@@ -236,8 +286,10 @@
 					<h3 class="font-semibold">
 						Higher Diploma — Software Development, NUI Galway
 					</h3>
-					<p class="text-sm text-slate-600">Aug 2018 — May 2019</p>
-					<p class="mt-1">
+					<p class="text-sm text-slate-600 dark:text-slate-400">
+						Aug 2018 — May 2019
+					</p>
+					<p class="mt-1 text-slate-800 dark:text-slate-200">
 						Grade 1 ⭐️ · Internship with Marine Institute
 					</p>
 				</div>
@@ -246,8 +298,10 @@
 					<h3 class="font-semibold">
 						Masters — International Human Rights Law, NUI Galway
 					</h3>
-					<p class="text-sm text-slate-600">Sep 2007 — Sep 2008</p>
-					<p class="mt-1">
+					<p class="text-sm text-slate-600 dark:text-slate-400">
+						Sep 2007 — Sep 2008
+					</p>
+					<p class="mt-1 text-slate-800 dark:text-slate-200">
 						Grade 2.1 · Internship with Human Rights Law Network
 						(India)
 					</p>
@@ -257,26 +311,30 @@
 					<h3 class="font-semibold">
 						Bachelor of Arts, Maynooth University
 					</h3>
-					<p class="text-sm text-slate-600">Sep 2004 — Jun 2008</p>
-					<p class="mt-1">Grade 1 ⭐️</p>
+					<p class="text-sm text-slate-600 dark:text-slate-400">
+						Sep 2004 — Jun 2008
+					</p>
+					<p class="mt-1 text-slate-800 dark:text-slate-200">
+						Grade 1 ⭐️
+					</p>
 				</div>
 			</section>
 
 			<!-- Hobbies -->
 			<section class="mt-8">
 				<h2
-					class="text-sm font-semibold uppercase tracking-wider text-slate-500"
+					class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400"
 				>
 					Hobbies
 				</h2>
-				<p class="mt-3 text-slate-800">
+				<p class="mt-3 text-slate-800 dark:text-slate-200">
 					Cycling 🚴🏻 · Cooking 👨🏻‍🍳 · Coding 👨🏻‍💻 · Gaming 🕹 · Politics
 					🗞
 				</p>
 			</section>
 
 			<footer
-				class="mt-10 border-t border-slate-200 pt-6 text-sm text-slate-600"
+				class="mt-10 border-t border-slate-200 pt-6 text-sm text-slate-600 dark:border-slate-800 dark:text-slate-400"
 			>
 				<p>
 					Last updated:
@@ -286,8 +344,33 @@
 		</main>
 
 		<script>
+			// Last updated
 			document.getElementById("last-updated").textContent =
 				new Date().toLocaleDateString()
+
+			// Theme toggle
+			const btn = document.getElementById("theme-toggle")
+			const icon = document.getElementById("theme-icon")
+			const label = document.getElementById("theme-label")
+
+			function isDark() {
+				return document.documentElement.classList.contains("dark")
+			}
+
+			function setUI(dark) {
+				icon.textContent = dark ? "☀️" : "🌙"
+				label.textContent = dark ? "Light" : "Dark"
+			}
+
+			setUI(isDark())
+
+			btn.addEventListener("click", () => {
+				const next = !isDark()
+				document.documentElement.classList.toggle("dark", next)
+				localStorage.setItem("theme", next ? "dark" : "light")
+				setUI(next)
+			})
 		</script>
 	</body>
 </html>
+
