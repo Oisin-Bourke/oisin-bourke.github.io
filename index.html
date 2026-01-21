@@ -30,7 +30,10 @@
 					window.matchMedia("(prefers-color-scheme: dark)").matches
 
 				const theme = stored ?? (prefersDark ? "dark" : "light")
-				document.documentElement.classList.toggle("dark", theme === "dark")
+				document.documentElement.classList.toggle(
+					"dark",
+					theme === "dark",
+				)
 			})()
 		</script>
 
@@ -69,35 +72,48 @@
 			</div>
 
 			<!-- Header -->
-			<header class="border-b border-slate-200 pb-6 dark:border-slate-800">
-				<h1 class="text-3xl font-bold tracking-tight">Oisin Bourke</h1>
-				<p class="mt-1 text-lg text-slate-700 dark:text-slate-300">
-					Software Engineer
-				</p>
-
+			<header
+				class="border-b border-slate-200 pb-6 dark:border-slate-800"
+			>
 				<div
-					class="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm text-slate-700 dark:text-slate-300"
+					class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between"
 				>
-					<span>Belfast, Northern Ireland</span>
-					<span>📞 07925 022239</span>
-					<a
-						href="mailto:obourke@gmail.com"
-						class="underline decoration-slate-300 underline-offset-4 hover:text-slate-900 dark:decoration-slate-700 dark:hover:text-white"
-					>
-						obourke@gmail.com
-					</a>
-					<a
-						href="https://www.linkedin.com/in/oisin-bourke/"
-						class="underline decoration-slate-300 underline-offset-4 hover:text-slate-900 dark:decoration-slate-700 dark:hover:text-white"
-					>
-						LinkedIn
-					</a>
-					<a
-						href="https://github.com/oisin-bourke"
-						class="underline decoration-slate-300 underline-offset-4 hover:text-slate-900 dark:decoration-slate-700 dark:hover:text-white"
-					>
-						GitHub
-					</a>
+					<div>
+						<h1 class="text-3xl font-bold tracking-tight">
+							Oisin Bourke
+						</h1>
+
+						<p
+							class="mt-1 text-lg text-slate-700 dark:text-slate-300"
+						>
+							Software Engineer
+						</p>
+
+						<div
+							class="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm text-slate-700 dark:text-slate-300"
+						>
+							<span>Belfast, Northern Ireland</span>
+							<span>📞 07925 022239</span>
+							<a
+								href="mailto:obourke@gmail.com"
+								class="underline decoration-slate-300 underline-offset-4 hover:text-slate-900 dark:decoration-slate-700 dark:hover:text-white"
+							>
+								obourke@gmail.com
+							</a>
+							<a
+								href="https://www.linkedin.com/in/oisin-bourke/"
+								class="underline decoration-slate-300 underline-offset-4 hover:text-slate-900 dark:decoration-slate-700 dark:hover:text-white"
+							>
+								LinkedIn
+							</a>
+							<a
+								href="https://github.com/oisin-bourke"
+								class="underline decoration-slate-300 underline-offset-4 hover:text-slate-900 dark:decoration-slate-700 dark:hover:text-white"
+							>
+								GitHub
+							</a>
+						</div>
+					</div>
 				</div>
 			</header>
 
@@ -108,7 +124,9 @@
 				>
 					Profile
 				</h2>
-				<p class="mt-3 leading-relaxed text-slate-800 dark:text-slate-200">
+				<p
+					class="mt-3 leading-relaxed text-slate-800 dark:text-slate-200"
+				>
 					Software engineer with 6 years’ experience building
 					scalable, high-performing web applications using React,
 					TypeScript, and modern JavaScript. Proven ability to deliver
@@ -133,8 +151,15 @@
 					>
 						<h3 class="text-base font-semibold">
 							Frontend Engineer — Rapid7
+							<span
+								class="text-sm font-normal text-slate-600 dark:text-slate-400"
+							>
+								(Cybersecurity)
+							</span>
 						</h3>
-						<span class="text-sm text-slate-600 dark:text-slate-400">
+						<span
+							class="text-sm text-slate-600 dark:text-slate-400"
+						>
 							Nov 2023 — Present · Belfast
 						</span>
 					</div>
@@ -142,24 +167,28 @@
 						class="mt-2 list-disc pl-5 leading-relaxed text-slate-800 dark:text-slate-200"
 					>
 						<li>
-							Developing complex user interfaces using React with
-							TypeScript
+							Designing and building complex, scalable user
+							interfaces using React and TypeScript in a large
+							production codebase
 						</li>
 						<li>
-							Collaborating with UX/UI designers to implement
-							components
+							Working closely with UX/UI designers and product
+							partners to translate designs into accessible,
+							reusable components
 						</li>
 						<li>
-							Optimizing performance and ensuring rigorous test
-							coverage
+							Improving application performance and reliability
+							through profiling, optimisation, and comprehensive
+							test coverage
 						</li>
 						<li>
-							Scoping and planning projects from inception to
-							delivery
+							Owning features end-to-end, from scoping and
+							technical design through to delivery and iteration
 						</li>
 						<li>
 							Contributing to architectural discussions and
-							mentoring newer team members
+							supporting less-experienced engineers through code
+							reviews and mentoring
 						</li>
 					</ul>
 				</article>
@@ -171,15 +200,25 @@
 					>
 						<h3 class="text-base font-semibold">
 							Frontend Engineer — Foods Connected
+							<span
+								class="text-sm font-normal text-slate-600 dark:text-slate-400"
+							>
+								(Food supply chain)
+							</span>
 						</h3>
-						<span class="text-sm text-slate-600 dark:text-slate-400">
+						<span
+							class="text-sm text-slate-600 dark:text-slate-400"
+						>
 							Jun 2023 — Oct 2023 · Belfast
 						</span>
 					</div>
 					<ul
 						class="mt-2 list-disc pl-5 leading-relaxed text-slate-800 dark:text-slate-200"
 					>
-						<li>Developed user interfaces using React</li>
+						<li>
+							Developed and shipped user interface features using
+							React in a customer-facing web application
+						</li>
 					</ul>
 				</article>
 
@@ -190,16 +229,30 @@
 					>
 						<h3 class="text-base font-semibold">
 							Software Engineer — Pitchbooking
+							<span
+								class="text-sm font-normal text-slate-600 dark:text-slate-400"
+							>
+								(Booking platform)
+							</span>
 						</h3>
-						<span class="text-sm text-slate-600 dark:text-slate-400">
+						<span
+							class="text-sm text-slate-600 dark:text-slate-400"
+						>
 							Jan 2023 — May 2023 · Belfast
 						</span>
 					</div>
 					<ul
 						class="mt-2 list-disc pl-5 leading-relaxed text-slate-800 dark:text-slate-200"
 					>
-						<li>Built front-end features with React</li>
-						<li>Contributed to backend services using Node.js</li>
+						<li>
+							Built and maintained front-end features using React
+							for a scheduling and booking platform
+						</li>
+						<li>
+							Contributed to backend services with Node.js,
+							collaborating across the stack to deliver features
+							end-to-end
+						</li>
 					</ul>
 				</article>
 
@@ -210,22 +263,32 @@
 					>
 						<h3 class="text-base font-semibold">
 							Software Engineer — Firstup
+							<span
+								class="text-sm font-normal text-slate-600 dark:text-slate-400"
+							>
+								(Workplace communications)
+							</span>
 						</h3>
-						<span class="text-sm text-slate-600 dark:text-slate-400">
+						<span
+							class="text-sm text-slate-600 dark:text-slate-400"
+						>
 							Jan 2020 — Dec 2022 · Belfast
 						</span>
 					</div>
 					<ul
 						class="mt-2 list-disc pl-5 leading-relaxed text-slate-800 dark:text-slate-200"
 					>
-						<li>Developed user interfaces using React</li>
 						<li>
-							Built and maintained backend services with C# and
-							.NET
+							Developed user interfaces with React as part of a
+							cross-functional product team
 						</li>
 						<li>
-							Integrated front-end and back-end systems for
-							seamless UX
+							Built and maintained backend services using C# and
+							.NET in a production environment
+						</li>
+						<li>
+							Integrated front-end and back-end systems to deliver
+							cohesive, reliable user experiences
 						</li>
 					</ul>
 				</article>
@@ -238,39 +301,85 @@
 				>
 					Skills
 				</h2>
+
 				<div class="mt-3 flex flex-wrap gap-2">
+					<!-- Core -->
 					<span
-						class="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-800 dark:bg-slate-900 dark:text-slate-100"
-						>React</span
+						class="rounded-full bg-blue-50 px-3 py-1 text-sm text-blue-900 dark:bg-blue-950 dark:text-blue-200"
 					>
+						React
+					</span>
 					<span
-						class="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-800 dark:bg-slate-900 dark:text-slate-100"
-						>JavaScript</span
+						class="rounded-full bg-blue-50 px-3 py-1 text-sm text-blue-900 dark:bg-blue-950 dark:text-blue-200"
 					>
+						TypeScript
+					</span>
 					<span
-						class="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-800 dark:bg-slate-900 dark:text-slate-100"
-						>TypeScript</span
+						class="rounded-full bg-blue-50 px-3 py-1 text-sm text-blue-900 dark:bg-blue-950 dark:text-blue-200"
 					>
+						JavaScript
+					</span>
 					<span
-						class="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-800 dark:bg-slate-900 dark:text-slate-100"
-						>HTML &amp; CSS</span
+						class="rounded-full bg-blue-50 px-3 py-1 text-sm text-blue-900 dark:bg-blue-950 dark:text-blue-200"
 					>
+						HTML &amp; CSS
+					</span>
+
+					<!-- State & Data -->
 					<span
-						class="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-800 dark:bg-slate-900 dark:text-slate-100"
-						>Node &amp; NPM</span
+						class="rounded-full bg-indigo-50 px-3 py-1 text-sm text-indigo-900 dark:bg-indigo-950 dark:text-indigo-200"
 					>
+						React Context
+					</span>
 					<span
-						class="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-800 dark:bg-slate-900 dark:text-slate-100"
-						>Git</span
+						class="rounded-full bg-indigo-50 px-3 py-1 text-sm text-indigo-900 dark:bg-indigo-950 dark:text-indigo-200"
 					>
+						Redux
+					</span>
 					<span
-						class="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-800 dark:bg-slate-900 dark:text-slate-100"
-						>Teamwork</span
+						class="rounded-full bg-indigo-50 px-3 py-1 text-sm text-indigo-900 dark:bg-indigo-950 dark:text-indigo-200"
 					>
+						Recoil
+					</span>
 					<span
-						class="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-800 dark:bg-slate-900 dark:text-slate-100"
-						>Communication</span
+						class="rounded-full bg-indigo-50 px-3 py-1 text-sm text-indigo-900 dark:bg-indigo-950 dark:text-indigo-200"
 					>
+						React Query
+					</span>
+					<span
+						class="rounded-full bg-indigo-50 px-3 py-1 text-sm text-indigo-900 dark:bg-indigo-950 dark:text-indigo-200"
+					>
+						Fetch API
+					</span>
+
+					<!-- Testing -->
+					<span
+						class="rounded-full bg-emerald-50 px-3 py-1 text-sm text-emerald-900 dark:bg-emerald-950 dark:text-emerald-200"
+					>
+						React Testing Library
+					</span>
+					<span
+						class="rounded-full bg-emerald-50 px-3 py-1 text-sm text-emerald-900 dark:bg-emerald-950 dark:text-emerald-200"
+					>
+						Vitest
+					</span>
+
+					<!-- Tooling -->
+					<span
+						class="rounded-full bg-amber-50 px-3 py-1 text-sm text-amber-900 dark:bg-amber-950 dark:text-amber-200"
+					>
+						Vite
+					</span>
+					<span
+						class="rounded-full bg-amber-50 px-3 py-1 text-sm text-amber-900 dark:bg-amber-950 dark:text-amber-200"
+					>
+						Node &amp; NPM
+					</span>
+					<span
+						class="rounded-full bg-amber-50 px-3 py-1 text-sm text-amber-900 dark:bg-amber-950 dark:text-amber-200"
+					>
+						Git
+					</span>
 				</div>
 			</section>
 
@@ -282,40 +391,49 @@
 					Education
 				</h2>
 
+				<!-- Higher Diploma -->
 				<div class="mt-4">
 					<h3 class="font-semibold">
-						Higher Diploma — Software Development, NUI Galway
+						Higher Diploma in Software Development — NUI Galway
 					</h3>
 					<p class="text-sm text-slate-600 dark:text-slate-400">
 						Aug 2018 — May 2019
 					</p>
 					<p class="mt-1 text-slate-800 dark:text-slate-200">
-						Grade 1 ⭐️ · Internship with Marine Institute
+						Grade: 1 ⭐️
+					</p>
+					<p class="text-slate-700 dark:text-slate-300">
+						Internship: Marine Institute, Galway
 					</p>
 				</div>
 
+				<!-- Masters -->
 				<div class="mt-4">
 					<h3 class="font-semibold">
-						Masters — International Human Rights Law, NUI Galway
+						Master’s in International Human Rights Law — NUI Galway
 					</h3>
 					<p class="text-sm text-slate-600 dark:text-slate-400">
 						Sep 2007 — Sep 2008
 					</p>
 					<p class="mt-1 text-slate-800 dark:text-slate-200">
-						Grade 2.1 · Internship with Human Rights Law Network
-						(India)
+						Grade: 2.1
+					</p>
+					<p class="text-slate-700 dark:text-slate-300">
+						Internship: Human Rights Law Network, India
 					</p>
 				</div>
 
+				<!-- Undergraduate -->
 				<div class="mt-4">
 					<h3 class="font-semibold">
-						Bachelor of Arts, Maynooth University
+						Bachelor of Arts (History &amp; Anthropology) — Maynooth
+						University
 					</h3>
 					<p class="text-sm text-slate-600 dark:text-slate-400">
 						Sep 2004 — Jun 2008
 					</p>
 					<p class="mt-1 text-slate-800 dark:text-slate-200">
-						Grade 1 ⭐️
+						Grade: 1 ⭐️
 					</p>
 				</div>
 			</section>
@@ -333,13 +451,50 @@
 				</p>
 			</section>
 
+			<!-- Footer -->
 			<footer
 				class="mt-10 border-t border-slate-200 pt-6 text-sm text-slate-600 dark:border-slate-800 dark:text-slate-400"
 			>
-				<p>
-					Last updated:
-					<span id="last-updated"></span>
-				</p>
+				<div
+					class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"
+				>
+					<p>
+						Last updated:
+						<span id="last-updated"></span>
+					</p>
+
+					<p class="flex items-center gap-2 text-xs">
+						<span>Built with</span>
+
+						<span
+							class="flex h-5 w-5 items-center justify-center rounded-md bg-slate-100 dark:bg-slate-800/70"
+						>
+							<svg
+								class="h-3.5 w-3.5 text-sky-400"
+								viewBox="0 0 54 33"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
+								aria-hidden="true"
+							>
+								<!-- official Tailwind mark -->
+								<path
+									d="M27 0C19.8 0 15.3 3.6 13.5 10.8C16.2 7.2 19.35 5.85 22.95 6.75C25 7.25 26.45 8.7 28.05 10.3C30.6 12.95 33.45 16 40.5 16C47.7 16 52.2 12.4 54 5.2C51.3 8.8 48.15 10.15 44.55 9.25C42.5 8.75 41.05 7.3 39.45 5.7C36.9 3.05 34.05 0 27 0Z"
+									fill="currentColor"
+								/>
+								<path
+									d="M13.5 16C6.3 16 1.8 19.6 0 26.8C2.7 23.2 5.85 21.85 9.45 22.75C11.5 23.25 12.95 24.7 14.55 26.3C17.1 28.95 19.95 32 27 32C34.2 32 38.7 28.4 40.5 21.2C37.8 24.8 34.65 26.15 31.05 25.25C29 24.75 27.55 23.3 25.95 21.7C23.4 19.05 20.55 16 13.5 16Z"
+									fill="currentColor"
+								/>
+							</svg>
+						</span>
+
+						<span
+							class="font-medium text-slate-700 dark:text-slate-300"
+						>
+							Tailwind CSS
+						</span>
+					</p>
+				</div>
 			</footer>
 		</main>
 
@@ -373,4 +528,3 @@
 		</script>
 	</body>
 </html>
-
